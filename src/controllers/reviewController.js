@@ -20,13 +20,12 @@ const isValidObjectId = function (objectId) {
 const isValidRating = function (rating) {
   return [1, 2, 3, 4, 5].indexOf(rating) > -1;
 };
-//////////////////////////////////     CREATE REVIEW /////////////////////
+//////////////////////////////////CREATE REVIEW/////////////////////
 const createReview = async function (req, res) {
   try {
     const requestBody = req.body;
     const _id = req.params.bookId;
     let { reviewedBy, rating, review } = requestBody;
-
     if (!isValidObjectId(_id)) {
       res
         .status(400)

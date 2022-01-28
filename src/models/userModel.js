@@ -5,16 +5,16 @@ const userSchema = new mongoose.Schema({
     title: {
         type: String,
         enum: ['Mr', 'Mrs', 'Miss'],
-        required: 'Title is required'
+        required: true
     },
     name: {
         type: String,
-        required: 'Name is required',
+        required: true,
         trim: true
     },
     phone: {
         type: String,
-        required: 'Phone number is required',
+        required: true,
         unique: true,
         trim : true
 
@@ -24,7 +24,7 @@ const userSchema = new mongoose.Schema({
         trim: true,
         lowercase: true,
         unique: true,
-        required: 'Email address is required',
+        required: true,
         validate: {
             validator: function (email) {
                 return /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email)
@@ -33,7 +33,7 @@ const userSchema = new mongoose.Schema({
     },
     password: {
         type: String,
-        required: 'Password is required',
+        required: true,
         minlength : 8,
         maxlength : 15,
         trim : true
@@ -45,5 +45,5 @@ const userSchema = new mongoose.Schema({
     }
 }, { timestamps: true })
 
-module.exports = mongoose.model('User', userSchema)
+module.exports = mongoose.model('BookUser', userSchema)
 

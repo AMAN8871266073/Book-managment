@@ -5,7 +5,7 @@ const bookSchema = new mongoose.Schema({
 
     title: {
         type: String,
-        required: 'Title is required',
+        required: true,
         unique: true,
         trim: true
     },
@@ -21,18 +21,18 @@ const bookSchema = new mongoose.Schema({
     },
     ISBN: {
         type: String,
-        required: 'ISBN is required',
+        required: true,
         unique: true,
         trim: true
     },
     category: {
         type: String,
-        required: 'category is required',
+        required: true,
         trim: true
     },
     subcategory: {
         type: String,
-        required: 'subcategory is required',
+        required: true,
         trim: true
     },
     reviews: {
@@ -49,8 +49,7 @@ const bookSchema = new mongoose.Schema({
     },
     releasedAt: {
         type: Date,
-        required: 'releasedAt is required'
-
+        required: true
     }
 }, { timestamps: true })
 
